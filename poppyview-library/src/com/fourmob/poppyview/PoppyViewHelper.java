@@ -13,8 +13,14 @@ import android.widget.FrameLayout;
 import android.widget.ListView;
 import android.widget.ScrollView;
 
+import com.nineoldandroids.view.ViewPropertyAnimator;
+
 
 public class PoppyViewHelper {
+
+	public enum PoppyViewPosition {
+		TOP, BOTTOM
+	};
 
 	private static final int SCROLL_TO_TOP = - 1;
 
@@ -32,9 +38,16 @@ public class PoppyViewHelper {
 
 	private int mPoppyViewHeight = - 1;
 
+	private PoppyViewPosition mPoppyViewPosition;
+
+	public PoppyViewHelper(Activity activity, PoppyViewPosition position) {
+		mActivity = activity;
+		mLayoutInflater = LayoutInflater.from(activity);
+		mPoppyViewPosition = position;
+	}
+
 	public PoppyViewHelper(Activity activity) {
-		this.mActivity = activity;
-		this.mLayoutInflater = LayoutInflater.from(activity);
+		this(activity, PoppyViewPosition.BOTTOM);
 	}
 
 	// for scrollview
@@ -45,6 +58,7 @@ public class PoppyViewHelper {
 		initPoppyViewOnScrollView(scrollView);
 		return mPoppyView;
 	}
+
 
 	// for ListView
 
@@ -61,6 +75,7 @@ public class PoppyViewHelper {
 		return mPoppyView;
 	}
 
+
 	// common
 
 	private void setPoppyViewOnView(View view) {
@@ -73,7 +88,7 @@ public class PoppyViewHelper {
 		group.addView(newContainer, index, lp);
 		newContainer.addView(view);
 		final FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
-		layoutParams.gravity = Gravity.BOTTOM;
+		layoutParams.gravity = mPoppyViewPosition == PoppyViewPosition.BOTTOM ? Gravity.BOTTOM : Gravity.TOP;
 		newContainer.addView(mPoppyView, layoutParams);
 		group.invalidate();
 	}
@@ -103,8 +118,18 @@ public class PoppyViewHelper {
 				if(mPoppyViewHeight <= 0) {
 					mPoppyViewHeight = mPoppyView.getHeight();
 				}
-				final int translationY = mScrollDirection == SCROLL_TO_TOP ? 0 : mPoppyViewHeight;
-				mPoppyView.animate().translationY(translationY);
+				
+				int translationY = 0;
+				switch (mPoppyViewPosition) {
+				case BOTTOM:
+					translationY = mScrollDirection == SCROLL_TO_TOP ? 0 : mPoppyViewHeight;
+					break;
+				case TOP:
+					translationY = mScrollDirection == SCROLL_TO_TOP ? -mPoppyViewHeight : 0;
+					break;
+				}
+
+				ViewPropertyAnimator.animate(mPoppyView).setDuration(3000).translationY(translationY);
 			}
 		});
 	}

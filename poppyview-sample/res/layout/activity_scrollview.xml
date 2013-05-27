@@ -1,45 +1,55 @@
 <com.fourmob.poppyview.NotifyingScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/scrollView"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:id="@+id/scrollView" >
+    android:layout_height="match_parent" >
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent" >
 
-        <View
+        <TextView
             android:id="@+id/view1"
+            style="@style/HendrixTextPart"
             android:layout_width="match_parent"
-            android:layout_height="230dp"
-            android:background="#FFBBFF" />
+            android:layout_height="wrap_content"
+            android:background="#FFBBFF"
+            android:text="James Marshall Hendrix (born Johnny Allen Hendrix; November 27, 1942 – September 18, 1970) was an American musician, singer and songwriter. Despite a limited mainstream exposure of four years, he is widely considered one of the most influential electric guitarists in the history of popular music and one of the most celebrated musicians of the 20th century." />
 
-        <View
+        <TextView
             android:id="@+id/view2"
+            style="@style/HendrixTextPart"
             android:layout_width="match_parent"
-            android:layout_height="350dp"
+            android:layout_height="wrap_content"
             android:layout_below="@+id/view1"
-            android:background="#EEBBEE" />
+            android:background="#EEBBEE"
+            android:text="After law enforcement authorities had twice caught Hendrix riding in stolen cars, he was given a choice between spending time in prison or serving in the US military: he chose the latter and enlisted in the Army in May 1961. Inspired musically by American rock and roll and electric blues, during his service Hendrix formed a band called the Casuals. In June 1962 he was granted an honorable discharge on the basis of unsuitability, and in 1963, he moved to Clarksville, Tennessee and formed the King Kasuals, playing numerous gigs on the Chitlin&apos; circuit. " />
 
-        <View
+        <TextView
             android:id="@+id/view3"
+            style="@style/HendrixTextPart"
             android:layout_width="match_parent"
-            android:layout_height="170dp"
+            android:layout_height="wrap_content"
             android:layout_below="@+id/view2"
-            android:background="#DFB0FF" />
+            android:background="#DFB0FF"
+            android:text="By early 1964 he had moved to Harlem, where he earned a spot in the Isley Brothers&apos; backing band. Later that year he found work with Little Richard, whom he played with through mid-1965. He then joined Curtis Knight and the Squires before moving to England in late 1966 after having been discovered by bassist Chas Chandler of the Animals. Following his initial success in Europe with the Jimi Hendrix Experience, he achieved fame in the US after his 1967 performance at the Monterey Pop Festival. He headlined the Woodstock Festival in 1969 and the Isle of Wight Festival in 1970, before dying from barbiturate related asphyxia at the age of 27." />
 
-        <View
+        <TextView
             android:id="@+id/view4"
+            style="@style/HendrixTextPart"
             android:layout_width="match_parent"
-            android:layout_height="220dp"
+            android:layout_height="wrap_content"
             android:layout_below="@+id/view3"
-            android:background="#CBC5F5" />
+            android:background="#CBC5F5"
+            android:text="Instrumental in developing the previously undesirable technique of guitar amplifier feedback, Hendrix favored overdriven amplifiers with high volume and gain. He helped to popularize the use of the wah-wah pedal in mainstream rock, and pioneered experimentation with stereophonic phasing effects in rock music recordings." />
 
-        <View
+        <TextView
             android:id="@+id/view5"
+            style="@style/HendrixTextPart"
             android:layout_width="match_parent"
-            android:layout_height="620dp"
+            android:layout_height="wrap_content"
             android:layout_below="@+id/view4"
-            android:background="#BAD0EF" />
+            android:background="#BAD0EF"
+            android:text="Hendrix was the recipient of several music awards during his lifetime and posthumously, and the Jimi Hendrix Experience was inducted into the US Rock and Roll Hall of Fame in 1992 and the UK Music Hall of Fame in 2005. Rolling Stone ranked his three non-posthumous studio albums, Are You Experienced, Axis: Bold as Love and Electric Ladyland among the 100 greatest albums of all time. Rolling Stone ranked him as the greatest guitarist of all time and the sixth greatest artist of all time." />
     </RelativeLayout>
 
 </com.fourmob.poppyview.NotifyingScrollView>
