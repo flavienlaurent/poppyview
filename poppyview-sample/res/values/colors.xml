@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="selector_poppyview_pressed">#9933cc</color>
+    <color name="selector_poppyview_default">#aa66cc</color>
+    
+    <color name="selector_button_pressed">#9933cc</color>
+    <color name="selector_button_default">#aa66cc</color>
+</resources>

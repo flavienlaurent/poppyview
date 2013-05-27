@@ -1,0 +1,45 @@
+<com.fourmob.poppyview.NotifyingScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/scrollView" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <View
+            android:id="@+id/view1"
+            android:layout_width="match_parent"
+            android:layout_height="230dp"
+            android:background="#FFBBFF" />
+
+        <View
+            android:id="@+id/view2"
+            android:layout_width="match_parent"
+            android:layout_height="350dp"
+            android:layout_below="@+id/view1"
+            android:background="#EEBBEE" />
+
+        <View
+            android:id="@+id/view3"
+            android:layout_width="match_parent"
+            android:layout_height="170dp"
+            android:layout_below="@+id/view2"
+            android:background="#DFB0FF" />
+
+        <View
+            android:id="@+id/view4"
+            android:layout_width="match_parent"
+            android:layout_height="220dp"
+            android:layout_below="@+id/view3"
+            android:background="#CBC5F5" />
+
+        <View
+            android:id="@+id/view5"
+            android:layout_width="match_parent"
+            android:layout_height="620dp"
+            android:layout_below="@+id/view4"
+            android:background="#BAD0EF" />
+    </RelativeLayout>
+
+</com.fourmob.poppyview.NotifyingScrollView>

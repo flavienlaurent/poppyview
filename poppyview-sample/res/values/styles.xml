@@ -1,0 +1,12 @@
+<resources>
+
+    <style name="AppTheme" parent="Theme.Sherlock.Light.DarkActionBar"></style>
+
+    <style name="MainButton">
+        <item name="android:background">@drawable/selector_button</item>
+        <item name="android:padding">15dp</item>
+        <item name="android:fontFamily">sans-serif-condensed</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+</resources>
