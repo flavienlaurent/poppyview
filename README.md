@@ -36,7 +36,7 @@ Using the library is simple, just look at the source code of the provided sample
 Acknowledgements
 --------------------
 
-* Thanks to Cyril Mottier for being french ^^
+* Thanks to Cyril Mottier, Roman Nurik and Jake Wharton
 
 License
 -----------
