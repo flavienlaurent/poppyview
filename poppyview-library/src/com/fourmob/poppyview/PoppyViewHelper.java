@@ -129,7 +129,7 @@ public class PoppyViewHelper {
 					break;
 				}
 
-				ViewPropertyAnimator.animate(mPoppyView).setDuration(3000).translationY(translationY);
+				ViewPropertyAnimator.animate(mPoppyView).setDuration(300).translationY(translationY);
 			}
 		});
 	}
