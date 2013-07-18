@@ -1,3 +1,14 @@
+#################
+## AndroidStudio
+#################
+
+project.properties
+.idea
+gen
+*.class
+out
+*.iml
+
 # built application files
 *.ap_
 
