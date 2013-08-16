@@ -62,7 +62,7 @@ public class PoppyViewHelper {
 
 	// for ListView
 
-	public View createPoppyViewOnListView(int listViewId, int poppyViewResId) {
+	public View createPoppyViewOnListView(int listViewId, int poppyViewResId, OnScrollListener onScrollListener) {
 		final ListView listView = (ListView)mActivity.findViewById(listViewId);
 		if(listView.getHeaderViewsCount() != 0) {
 			throw new IllegalArgumentException("use createPoppyViewOnListView with headerResId parameter");
@@ -71,8 +71,12 @@ public class PoppyViewHelper {
 			throw new IllegalArgumentException("poppyview library doesn't support listview with footer");
 		}
 		mPoppyView = mLayoutInflater.inflate(poppyViewResId, null);
-		initPoppyViewOnListView(listView);
+		initPoppyViewOnListView(listView, onScrollListener);
 		return mPoppyView;
+	}
+
+	public View createPoppyViewOnListView(int listViewId, int poppyViewResId) {
+		return createPoppyViewOnListView(listViewId, poppyViewResId, null);
 	}
 
 
@@ -154,7 +158,7 @@ public class PoppyViewHelper {
 
 	// for ListView
 
-	private void initPoppyViewOnListView(ListView listView) {
+	private void initPoppyViewOnListView(ListView listView, final OnScrollListener onScrollListener) {
 		setPoppyViewOnView(listView);
 		listView.setOnScrollListener(new OnScrollListener() {
 
@@ -162,6 +166,9 @@ public class PoppyViewHelper {
 
 			@Override
 			public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
+				if(onScrollListener != null) {
+					onScrollListener.onScroll(view, firstVisibleItem, visibleItemCount, totalItemCount);
+				}
 				View topChild = view.getChildAt(0);
 
 				int newScrollPosition = 0;
@@ -179,7 +186,11 @@ public class PoppyViewHelper {
 			}
 
 			@Override
-			public void onScrollStateChanged(AbsListView view, int scrollState) {}
+			public void onScrollStateChanged(AbsListView view, int scrollState) {
+				if(onScrollListener != null) {
+					onScrollListener.onScrollStateChanged(view, scrollState);
+				}
+			}
 		});
 	}
 }

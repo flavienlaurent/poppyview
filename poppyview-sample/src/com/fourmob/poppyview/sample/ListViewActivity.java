@@ -2,12 +2,10 @@ package com.fourmob.poppyview.sample;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.ListView;
-import android.widget.TextView;
-import android.widget.Toast;
+import android.widget.*;
 
 import com.fourmob.poppyview.PoppyViewHelper;
 
@@ -27,7 +25,17 @@ public class ListViewActivity extends Activity {
 		setContentView(R.layout.activity_listview);
 
 		mPoppyViewHelper = new PoppyViewHelper(this);
-		View poppyView = mPoppyViewHelper.createPoppyViewOnListView(R.id.listView1, R.layout.poppyview);
+		View poppyView = mPoppyViewHelper.createPoppyViewOnListView(R.id.listView1, R.layout.poppyview, new AbsListView.OnScrollListener() {
+			@Override
+			public void onScrollStateChanged(AbsListView view, int scrollState) {
+				Log.d("ListViewActivity", "onScrollStateChanged");
+			}
+
+			@Override
+			public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
+				Log.d("ListViewActivity", "onScroll");
+			}
+		});
 
 		poppyView.setOnClickListener(new View.OnClickListener() {
 
