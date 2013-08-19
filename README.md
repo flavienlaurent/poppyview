@@ -29,8 +29,8 @@ Usage
 
 Using the library is simple, just look at the source code of the provided samples:
 
-* [If your content should be in a `ScrollView`][7].
-* [If your content should be in a `ListView`][8].
+* [If your content is a `ScrollView`][7].
+* [If your content is a `ListView`][8].
 
 
 Acknowledgements
