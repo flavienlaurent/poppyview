@@ -10,7 +10,6 @@ import android.view.ViewParent;
 import android.widget.AbsListView;
 import android.widget.AbsListView.OnScrollListener;
 import android.widget.FrameLayout;
-import android.widget.ListView;
 import android.widget.ScrollView;
 
 import com.nineoldandroids.view.ViewPropertyAnimator;
@@ -63,13 +62,7 @@ public class PoppyViewHelper {
 	// for ListView
 
 	public View createPoppyViewOnListView(int listViewId, int poppyViewResId, OnScrollListener onScrollListener) {
-		final ListView listView = (ListView)mActivity.findViewById(listViewId);
-		if(listView.getHeaderViewsCount() != 0) {
-			throw new IllegalArgumentException("use createPoppyViewOnListView with headerResId parameter");
-		}
-		if(listView.getFooterViewsCount() != 0) {
-			throw new IllegalArgumentException("poppyview library doesn't support listview with footer");
-		}
+		final AbsListView listView = (AbsListView)mActivity.findViewById(listViewId);
 		mPoppyView = mLayoutInflater.inflate(poppyViewResId, null);
 		initPoppyViewOnListView(listView, onScrollListener);
 		return mPoppyView;
@@ -158,7 +151,7 @@ public class PoppyViewHelper {
 
 	// for ListView
 
-	private void initPoppyViewOnListView(ListView listView, final OnScrollListener onScrollListener) {
+	private void initPoppyViewOnListView(AbsListView listView, final OnScrollListener onScrollListener) {
 		setPoppyViewOnView(listView);
 		listView.setOnScrollListener(new OnScrollListener() {
 
